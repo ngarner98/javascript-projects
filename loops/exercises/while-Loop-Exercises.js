@@ -35,5 +35,5 @@ console.log(`The shuttle gained an altitude of ${shuttleAltitude} km.`);
 if (shuttleAltitude >= 2000) {
   console.log("Orbit achieved!");
 } else {
-  console.log("Failed to reach orbit.");
+  console.log("Failed to reach orbit...");
 }
