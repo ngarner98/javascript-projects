@@ -18,30 +18,52 @@ function holdStatus(arr){
   }
 }
 
-let reserveFuel = function (level) {
+let reserveFuelCheck = function (level) {
+  let reserve = '';
   if (checkFuel(level) === 'green') {
-    return level - 100001;
+    reserve = level - 100001;
   } else if (checkFuel(level) === 'yellow') {
-    return level - 50001;
+    reserve = level - 50001;
   } else {
-    return level;
+    reserve = level;
   }
+  fuelLevel = fuelLevel - reserve;
+  return reserve;
 };
 
-let aftCargoHold = [];
+let cargoStockCheck = function(arr) {
+  let bag = [];
+    let goldLocation = arr.indexOf('gold');
+    let satelliteLocation = arr.indexOf('satellite')
+    bag.push(arr[goldLocation]);
+    bag.push(arr[satelliteLocation]);
+    arr.splice(goldLocation, 1, 'copper');
+    arr.splice(satelliteLocation, 1, 'scrap metal');
+
+    return bag;
+  };
 
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
-
-console.log(reserveFuel(fuelLevel))
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
+
+let irs = function(fuelLevel, cargoHold) {
+  let fuelTaken = reserveFuelCheck(fuelLevel);
+  let items = cargoStockCheck(cargoHold);
+  return `Raided ${fuelTaken} kg of fuel from the tanks, and stole ${items[0]} and ${items[1]} from the cargo hold.`
+};
+
+console.log(irs(fuelLevel, cargoHold));
+
 
 
 // Steal some fuel from the shuttle:
 
- 
+
+
+
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
 //b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
@@ -69,3 +91,5 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+
+
