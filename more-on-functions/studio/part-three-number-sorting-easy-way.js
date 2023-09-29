@@ -47,11 +47,10 @@ let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 //Sort each array in ascending order.
 
 console.log(ascendingArray(nums1));
-console.log(ascendingArray(nums2));
+
 console.log(ascendingArray(nums3));
 
 //Sort each array in decending order.
 
-// console.log(decendingArray(nums1));
-// console.log(decendingArray(nums2));
-// console.log(decendingArray(nums3));
+
+console.log(decendingArray(nums2));
