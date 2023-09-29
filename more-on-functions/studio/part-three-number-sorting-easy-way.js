@@ -18,7 +18,7 @@ function findMinValue(arr){
     return max;
   }
   
-  function decendingArray (arr) {
+  function descendingArray (arr) {
     let sortedDescendingArray = [];
     while (arr.length > 0) {
       let min = findMinValue(arr);
@@ -53,4 +53,10 @@ console.log(ascendingArray(nums3));
 //Sort each array in decending order.
 
 
-console.log(decendingArray(nums2));
+console.log(descendingArray(nums2));
+
+
+//Does it altar the arrays? Yes!
+console.log(nums1);
+console.log(nums2);
+console.log(nums3);
